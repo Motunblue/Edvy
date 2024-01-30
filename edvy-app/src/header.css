@@ -16,11 +16,11 @@ header {
     height: 28px;
     justify-content: center;
     align-items: flex-start;
-    gap: 38px;
     margin-top: auto;
 }
 
 .header-nav > h4 {
     font-weight: 400;
     margin: 0;
+    margin-right: 30px;
 }

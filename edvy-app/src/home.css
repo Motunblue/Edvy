@@ -3,17 +3,42 @@
     width: 100%;
     height: 450px;
     background: linear-gradient(72deg, #6186A7 8.4%, #ABB1B7 55.58%, #DD6F54 88%);
+    align-items: center;
     justify-content: space-between;
+    margin-bottom: 20vh;
 }
 
 .intro-word {
-    margin: 80px;
+    margin: 0px 80px 70px;
+    width: 35%;
 }
 
 .intro-word > .tagline {
-    color: #0B0023;
+    color: #241b37;
     font-size: 48px;
+    margin-bottom: 30px;
 }
 .intro-word > .tagline > span {
     color: #BF2402;
+}
+.intro-pic {
+  background-image: url('books.png');
+  background-size: cover;
+  width: 35%;
+  height: 85%;
+  margin-right: 40px;
+}
+
+.offer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.offer > h2 {
+  font-weight: inherit;
+}
+
+.offer-card {
+  width: 90%;
 }
