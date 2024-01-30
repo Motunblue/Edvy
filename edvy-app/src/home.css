@@ -1,0 +1,19 @@
+.intro {
+    display: flex;
+    width: 100%;
+    height: 450px;
+    background: linear-gradient(72deg, #6186A7 8.4%, #ABB1B7 55.58%, #DD6F54 88%);
+    justify-content: space-between;
+}
+
+.intro-word {
+    margin: 80px;
+}
+
+.intro-word > .tagline {
+    color: #0B0023;
+    font-size: 48px;
+}
+.intro-word > .tagline > span {
+    color: #BF2402;
+}
