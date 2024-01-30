@@ -1,0 +1,22 @@
+.offer-card {
+    display: flex;
+    flex-direction: column;
+    padding: 70px 50px;
+    align-items: center;
+    gap: 35px;
+    width: 196px;
+    height: 313px;
+    border-radius: 6px;
+    background: #FAFAFA;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.offer-card p {
+    margin: 0;
+    text-align: center;
+}
+
+.offer-icon{
+    padding: 35px;
+    border-radius: 6px;
+    background: #FCB276;
+}

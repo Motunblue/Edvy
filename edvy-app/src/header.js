@@ -1,4 +1,3 @@
-//import logo from './logo.svg';
 import './header.css';
 
 export default function Header() {
