@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  font-family: 'Roboto', -apple-system, 'Segoe UI', 'Oxygen',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: 80vw;
+  margin: 30px auto;
+}
