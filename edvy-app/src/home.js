@@ -1,11 +1,12 @@
 import './home.css';
 import Button from './components/button.js';
 import Offer from './components/offer_card.js'
+import Schools from './components/school.js'
 
 export default function Home() {
   return (
-    < div>
-        <section className="intro">
+    <>
+      <section className="intro">
         <div className="intro-word">
             <p className="tagline"><span>Your Education,</span> all in one place</p>
             <p className='description'>Edvy is an innovative web platform designed to bridge the gap between students, teachers, and information</p>
@@ -25,6 +26,10 @@ export default function Home() {
           desc="Securely manage student and teacher information, including grades, attendance, and class schedules"/>
         </div>
       </section>
-    </div>
+      <section className="schools">
+        <h2>Our schools</h2>
+          <Schools />
+      </section>
+    </>
   );
 }

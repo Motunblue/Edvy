@@ -7,13 +7,17 @@ header {
 }
 
 .logo {
-    width: 55px;
-    height: 40px;
+    width: 70px;
+    height: 55px;
+}
+.logo > p {
+    font-size: 48px;
+    margin: 0;
 }
 
 .header-nav {
     display: flex;
-    height: 28px;
+    height: 22px;
     justify-content: center;
     align-items: flex-start;
     margin-top: auto;
@@ -22,5 +26,27 @@ header {
 .header-nav > h4 {
     font-weight: 400;
     margin: 0;
-    margin-right: 30px;
+    width: 6em;
+    text-align: center;
+}
+
+.login {
+    position: relative;
+}
+.login-as {
+    display: none;
+    width: 100%;
+    background-color: #e6ad9f;
+    margin-top: 3px;
+}
+.login-as p {
+    margin: 0;
+    padding: 10px;
+}
+.login:hover .login-as {
+    display: block;
+    cursor: pointer;
+}
+.sign-up:hover {
+    cursor: pointer;
 }

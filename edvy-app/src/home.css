@@ -33,15 +33,15 @@
   margin-right: 40px;
 }
 
-.offer {
+.offer, .schools {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 60px;
+  margin-bottom: 20vh;
 }
 
-.offer > h2 {
+section > h2 {
   font-weight: inherit;
   margin-bottom: 60px;
 }
@@ -51,3 +51,4 @@
   display: flex;
   justify-content: space-around;
 }
+
