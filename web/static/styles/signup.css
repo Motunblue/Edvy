@@ -1,0 +1,50 @@
+/* body {
+    background-image: url('../assests/Noise\ dark.png');
+    background-repeat: repeat;
+    background-size: 15%;
+    background-position: center;
+    background: #404040;
+    opacity: 49%;
+}
+ */
+
+#signup-container {
+    width: 65vw;
+    margin: auto;
+}
+
+.logo {
+    margin-top: 80px;
+    font-size: 62px;
+}
+
+.signup-inner-cont {
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    border-radius: 0px 20px 20px 0px;
+    box-shadow: 
+    0px 10px 20px 0px rgba(0, 0, 0, 0.25),
+    0px -5px 10px 0px rgba(0, 0, 0, 0.15); 
+}
+.signup-tab {
+    height: 100%;
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+.signup-tab > p {
+    margin-top: 45px;
+    font-size: 24px;
+}
+.signup-div {
+    background: #0D4680;
+    height: 100%;
+    width: 3.5vh;
+}
+.signup-div2 {
+    background: #DEDEDE;
+    height: 100%;
+    width: 7vh;
+}

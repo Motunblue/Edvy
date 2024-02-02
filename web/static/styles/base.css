@@ -1,0 +1,14 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', -apple-system, 'Segoe UI', 'Oxygen',
+      'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif; 
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #F9F8F8;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
+    line-height: normal;
+  }
+  

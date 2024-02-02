@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Edvy - Sign-up{% endblock %}
+
+{% block header_scripts %}
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts/signup.js') }}?cache_id={{ cache_id }}"></script>
+{% endblock %}
+
+{% block css %}
+  <link href="{{url_for('static', filename='styles/signup.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <div id="signup-container">
+    <div class="logo">
+      <p>Edvy</p>
+    </div>
+    <div class="signup-inner-cont">
+      <img src="../static/assests/teaching.svg" />
+      <div class="signup-tab">
+        <p>SIGN-UP</p>
+        <form action="">
+          
+        </form>
+      </div>
+        <div class="signup-div"></div>
+        <div class="signup-div2"></div>
+    </div>
+  </div>
+{% endblock %}

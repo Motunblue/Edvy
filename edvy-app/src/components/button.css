@@ -1,4 +1,4 @@
-button {
+.sign-up-button {
   display: flex;
   padding: 11px 26px;
   border-radius: 20px;
@@ -9,9 +9,13 @@ button {
   background: #1F1F1F;
   color: white;
 }
-button p {
+.sign-up-button > p {
   font: inherit;
   font-weight: inherit;
   font-size: 16px;
   margin: 0px;
+}
+
+.sign-up-button:hover {
+  cursor: pointer;
 }
