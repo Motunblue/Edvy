@@ -1,11 +1,18 @@
 #!/usr/bin/python3
 """Route for Web"""
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, flash, redirect
 from flask_cors import CORS
 import uuid
+from web.accounts.users import users_bp
+from web.accounts.admin import admin_bp
+from web.forms import RegistrationForm
 
 
 app = Flask(__name__)
+#Register blueprint for users and admin
+app.register_blueprint(users_bp)
+app.register_blueprint(admin_bp)
+app.config['SECRET_KEY'] = '&dont[you]just*love^edvy$'
 
 cors = CORS(app, resources={r"/*": {"origins": "http://localhost:5000"}})
 
@@ -14,9 +21,15 @@ def home():
     """Retrieve home """
     return render_template('index.html', cache_id=str(uuid.uuid4()))
 
-@app.route('/signup/', methods=['GET'], strict_slashes=False)
-def signUp():
-    return render_template('signup.html')
+@app.route('/signup', methods=['GET', 'POST'], strict_slashes=False)
+def signup():
+    """School signup"""
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        flash('Account created succesfully for {}'.format(form.school_name.data), 'success')
+        return(redirect(url_for('admin_bp.adminLogin')))
+    return render_template('signup.html', form=form, cache_id=str(uuid.uuid4()))
+
 
 if __name__ == "__main__":
     """ Main Function """

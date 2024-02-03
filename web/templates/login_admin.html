@@ -1,0 +1,23 @@
+{% extends 'baseloginsignup.html' %}
+
+
+{% block form %}
+<legend>LOG IN</legend>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        <label for="email", class="school-icon-label">
+          <i class="school-email-icon"></i>
+          {{ form.email(class="school-input") }}
+        </label>
+        <label for="password", class="school-icon-label">
+          <i class="login-pwd-icon"></i>
+          {{ form.password(class="school-input") }}
+        </label>
+    </fieldset>
+    <div class="submit">
+      {{ form.submit(class="submit-btn") }}
+    </div>
+  </form>
+<p class="account-text">Don't have an account? <a class="anchor" href="{{ url_for('signup') }}">sign-up</a></p>
+{% endblock %}

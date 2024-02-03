@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Edvy - Sign-up{% endblock %}
+
+{% block header_scripts %}
+  <script type="text/javascript" src="{{ url_for('static', filename='scripts/loginsignup.js') }}?cache_id={{ cache_id }}"></script>
+{% endblock %}
+
+{% block css %}
+  <link href="{{url_for('static', filename='styles/baseloginsignup.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+  <div id="getin-container">
+    <div class="logo">
+      <p>Edvy</p>
+    </div>
+    <div class="getin-inner-cont">
+      <img src="../static/assests/teaching.svg" alt="Teacher and student"/>
+      <div class="getin-tab">
+        {% block form %}{% endblock %}
+      </div>
+        <div class="getin-div"></div>
+        <div class="getin-div2"></div>
+    </div>
+  </div>
+{% endblock %}

@@ -11,3 +11,10 @@ body {
   font-style: normal;
   line-height: normal;
 }
+
+.alert-success {
+  text-align: center;
+  font-style: italic;
+  color: green;
+  margin-top: 10px;
+}

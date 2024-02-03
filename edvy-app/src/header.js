@@ -10,8 +10,8 @@ export default function Header() {
         <div className="header-nav">
             <h4 className='login'>login
               <div className='login-as'>
-                <p>user</p>
-                <p>admin</p>
+                <p className="user-login">user</p>
+                <p className="admin-login">admin</p>
               </div>
             </h4>
             <h4 className='sign-up'/*  onClick={signupClick} */>sign-up</h4>

@@ -1,30 +1,45 @@
-{% extends 'base.html' %}
+{% extends 'baseloginsignup.html' %}
 
-{% block title %}Edvy - Sign-up{% endblock %}
 
-{% block header_scripts %}
-  <script type="text/javascript" src="{{ url_for('static', filename='scripts/signup.js') }}?cache_id={{ cache_id }}"></script>
-{% endblock %}
-
-{% block css %}
-  <link href="{{url_for('static', filename='styles/signup.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
-{% endblock %}
-
-{% block content %}
-  <div id="signup-container">
-    <div class="logo">
-      <p>Edvy</p>
-    </div>
-    <div class="signup-inner-cont">
-      <img src="../static/assests/teaching.svg" />
-      <div class="signup-tab">
-        <p>SIGN-UP</p>
-        <form action="">
-          
-        </form>
+{% block form %}
+<legend>SIGN-UP</legend>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <div class="">
+        {% if form.school_name.errors %}
+          <label for="school_name", class="school-icon-label invalid">
+            <i class="school-name-icon"></i>
+            {{ form.school_name(class="school-input") }}
+          </label>
+          <div class="invalid-feedback">
+              {% for error in form.school_name.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+          </div>
+        {% else %}
+          <label for="school_name", class="school-icon-label">
+            <i class="school-name-icon"></i>
+            {{ form.school_name(class="school-input") }}
+          </label>
+        {% endif %}
       </div>
-        <div class="signup-div"></div>
-        <div class="signup-div2"></div>
+        <label for="email", class="school-icon-label">
+          <i class="school-email-icon"></i>
+          {{ form.email(class="school-input") }}
+        </label>
+        <label for="password", class="school-icon-label">
+          <i class="school-password-icon"></i>
+          {{ form.password(class="school-input") }}
+        </label>
+        <label for="confirm_password", class="school-icon-label">
+          <i class="school-password-icon"></i>
+          {{ form.confirm_password(class="school-input") }}
+        </label>
+    </fieldset>
+    <div class="submit">
+      {{ form.submit(class="submit-btn") }}
     </div>
-  </div>
+  </form>
+<p class="account-text">Already have an account? <a class="anchor" href="{{ url_for('admin_bp.adminLogin') }}">login</a></p>
 {% endblock %}
