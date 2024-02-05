@@ -10,4 +10,6 @@ admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin')
 def adminLogin():
     """Login for admin"""
     form = LoginForm()
-    return render_template('login_admin.html', form=form, cache_id=str(uuid.uuid4()))
+    return render_template('login.html', admin=True,
+                        form=form, cache_id=str(uuid.uuid4())
+                        )
