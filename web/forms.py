@@ -25,13 +25,30 @@ class RegistrationForm(FlaskForm):
 
 
 class LoginForm(FlaskForm):
-    """Login Form"""
+    """ Admin Login Form"""
     email = StringField('email',
                         validators=[DataRequired(), Email()],
                         render_kw={'placeholder': 'email'}
+                    )
+    user_id = StringField('id',
+                        validators=[DataRequired()],
+                        render_kw={'placeholder': 'id'}
                     )
     password = PasswordField('password', validators=[DataRequired()],
                             render_kw={'placeholder': 'password'}
                             )
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+
+""" class UserLoginForm(FlaskForm):
+    user_id = StringField('id',
+                        validators=[DataRequired(), Email()],
+                        render_kw={'placeholder': 'id'}
+                    )
+    password = PasswordField('password', validators=[DataRequired()],
+                            render_kw={'placeholder': 'password'}
+                            )
+
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login') """
