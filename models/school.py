@@ -34,6 +34,7 @@ class School(Base):
 
         self.created_at = datetime.utcnow()
         self.updated_at = self.created_at
+        self.generate_id()
 
 
     def save(self):
@@ -41,3 +42,13 @@ class School(Base):
         self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
+
+    def generate_id(self):
+        """Generate id"""
+        school_name = self.name[:3].upper()
+        last_id = models.storage.get_lastId("School")
+        if last_id:
+            id_int = int(last_id.split('-', 1)[-1]) + 1
+        else:
+            id_int = 1
+        self.id = f"{school_name}-{id_int:04d}"

@@ -30,6 +30,9 @@ class DBStorage():
                                     f'{Edvy_MYSQL_PWD}@{Edvy_MYSQL_HOST}/'
                                     f'{Edvy_MYSQL_DB}'
                                     )
+
+        #if Edvy_ENV == 'test':
+         #   Base.metadata.drop_all(self.__engine)
         
 
     def new(self, obj):
@@ -47,9 +50,9 @@ class DBStorage():
         Session = scoped_session(session_factory)
         self.__session = Session
 
-    def count(self, cls):
-        """Get the count of a table"""
+    def get_lastId(self, cls):
+        """Get the last id of a table"""
         all_classes = {"Student": Student, "School": School}
-        student_count = self.__session.query(func.count(all_classes[cls].id)).scalar()
-        return student_count
+        last_id = self.__session.query(func.max(all_classes[cls].id)).scalar()
+        return last_id
 
