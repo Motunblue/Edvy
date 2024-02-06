@@ -2,6 +2,7 @@
 """
     Creates the Base class
 """
+import models
 import sqlalchemy
 from datetime import datetime
 from sqlalchemy import Column, String, DateTime
@@ -22,7 +23,7 @@ class BaseModel():
     def __init__(self, *args, **kwargs):
         """The instantiation method"""
         if kwargs:
-            for k, v in kwarg.items():
+            for k, v in kwargs.items():
                 if (k != "__class__"):
                  setattr(self, k, v)
 
@@ -38,6 +39,12 @@ class BaseModel():
     def __str__(self):
         """String representation of the object"""
         return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
+
+    def save(self):
+        """Store the new obj"""
+        self.updated_at = datetime.utcnow()
+        models.storage.new(self)
+        models.storage.save()
 
 
     def to_dict(self):
