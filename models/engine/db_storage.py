@@ -11,6 +11,7 @@ import models
 import sqlalchemy
 import models
 from models.student import Student
+from models.staff import Staff
 from models.school import School
 
 class DBStorage():
@@ -52,7 +53,7 @@ class DBStorage():
 
     def get_lastId(self, cls):
         """Get the last id of a table"""
-        all_classes = {"Student": Student, "School": School}
+        all_classes = {"Student": Student, "School": School, "Staff": Staff}
         last_id = self.__session.query(func.max(all_classes[cls].id)).scalar()
         return last_id
 

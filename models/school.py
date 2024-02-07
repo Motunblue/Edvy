@@ -24,6 +24,7 @@ class School(Base):
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
     students = relationship('Student', back_populates='school')
+    staffs = relationship('Staff', back_populates='school')
 
     def __init__(self, *args, **kwargs):
         """The instantiation method"""
