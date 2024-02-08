@@ -1,5 +1,6 @@
 {% extends 'baseloginsignup.html' %}
 
+{% block title %}Edvy - Sign-up{% endblock %}
 
 {% block form %}
 <legend>SIGN-UP</legend>
@@ -62,6 +63,9 @@
     <div class="submit">
       {{ form.submit(class="submit-btn") }}
     </div>
+    <small class="forgot-password">
+      <a href="#">Forgot password?</a>
+    </small>
   </form>
 <p class="account-text">Already have an account? <a class="anchor" href="{{ url_for('admin_bp.adminLogin') }}">login</a></p>
 {% endblock %}
