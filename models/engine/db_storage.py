@@ -57,3 +57,12 @@ class DBStorage():
         last_id = self.__session.query(func.max(all_classes[cls].id)).scalar()
         return last_id
 
+    def all(self, cls, email=None, id=None):
+        """Get all class"""
+        all_classes = {"Student": Student, "School": School, "Staff": Staff}
+        cls = all_classes[cls]
+        if email:
+            return self.__session.query(cls).filter(cls.email == email).first()
+        if id:
+            return self.__session.query(cls).filter(cls.email == id).first()
+        return self.__session.query(all_classes[cls]).all()

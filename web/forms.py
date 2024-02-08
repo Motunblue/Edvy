@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
-from wtforms.validators import DataRequired, Length, Email, EqualTo
+from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
+from models import storage
 
 class RegistrationForm(FlaskForm):
     """signup Form"""
@@ -19,9 +20,12 @@ class RegistrationForm(FlaskForm):
                                     validators=[DataRequired(), EqualTo('password')],
                                     render_kw={'placeholder': 'confirm password'}
                                     )
-
-
     submit = SubmitField('Sign-up')
+
+    def validate_email(self, email):
+        email = storage.all(cls='School', email=email)
+        if email:
+            raise ValidationError('email already exits')
 
 
 class LoginForm(FlaskForm):
