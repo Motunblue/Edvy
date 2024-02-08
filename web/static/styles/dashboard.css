@@ -1,4 +1,4 @@
-.side-nav, .register-type{
+.side-nav {
     background-color: #CFDFEF;
     height: 100vh;
     width: 10em;
@@ -21,26 +21,30 @@
 }
 .nav-block {
     width: 100%;
+    margin-top: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .nav-el {
-    margin-top: 20vh;
     width: 100%;
-    height: 10vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.nav-icon-cont {
+    padding: 4px 28px;
+    background-color: blue;
+    border-radius: 25px;
+}
+.nav-el > p {
+    margin-top: 6px;
+}
+
 .register-icon {
     width: 35px;
     height: 37px;
     background-image: url('../assests/register-icon.png');
     background-repeat: no-repeat;
-}
-.register-type {
-    transition: left 0.5s ease-in;
-    z-index: -1;
-}
-.register-type-hovered {
-    left: 10em;
 }

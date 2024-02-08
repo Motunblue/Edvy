@@ -31,7 +31,7 @@ class School(Base, UserMixin):
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    students = relationship('Student', backref='school')
+    students = relationship('Student', backref='school', cascade="all, delete-orphan")
     staffs = relationship('Staff', back_populates='school')
 
     def __init__(self, *args, **kwargs):
