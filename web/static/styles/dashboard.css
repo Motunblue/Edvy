@@ -3,6 +3,7 @@
     height: 100vh;
     width: 10em;
     position: fixed;
+    top: 0;
     left: 0;
     display: flex;
     flex-direction: column;
@@ -13,18 +14,16 @@
 }
 
 .profile {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
     margin-bottom: 34px;
-    background-image:  url('../assests/profile-icon.png');
-    background-repeat: no-repeat;
 }
 .nav-block {
     width: 100%;
     margin-top: 20vh;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 24px;
 }
 
 .nav-el {
@@ -33,9 +32,12 @@
     flex-direction: column;
     align-items: center;
 }
+.nav-el:hover {
+    cursor: pointer;
+}
 .nav-icon-cont {
     padding: 4px 28px;
-    background-color: blue;
+    background-color: #DF9D68;
     border-radius: 25px;
 }
 .nav-el > p {
@@ -47,4 +49,20 @@
     height: 37px;
     background-image: url('../assests/register-icon.png');
     background-repeat: no-repeat;
+}
+.blog-icon {
+    width: 35px;
+    height: 37px;
+    background-image: url('../assests/blog-icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.content-block {
+    padding-left: 10em;
+}
+header {
+    width: 100%;
+    height: 10vh;
+    border-bottom: 2px solid #DF9D68;
 }
