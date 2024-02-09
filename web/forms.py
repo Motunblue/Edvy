@@ -23,9 +23,9 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Sign-up')
 
     def validate_email(self, email):
-        email = storage.all(cls='School', email=email)
-        if email:
-            raise ValidationError('email already exits')
+        user_email = storage.all(cls='School', email=email.data)
+        if user_email:
+            raise ValidationError('Email already exits. Please Login')
 
 
 class LoginForm(FlaskForm):

@@ -5,7 +5,7 @@ from web.forms import LoginForm
 import uuid
 import bcrypt
 from models import storage
-from flask_login import login_user
+from flask_login import login_user, current_user, logout_user
 
 admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin') 
 
@@ -31,3 +31,9 @@ def adminBlog():
     """Admin blog"""
     return render_template('users/blog.html', cached_id=str(uuid.uuid4()),
                            school_logo="default.png")
+
+@admin_bp.route('/logout', methods=['GET'], strict_slashes=False)
+def adminLogout():
+    """Admin blog"""
+    logout_user()
+    return redirect(url_for('admin_bp.adminLogin'))

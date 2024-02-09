@@ -13,8 +13,8 @@ from flask_login import UserMixin
 
 
 @login_manager.user_loader
-def load_school(school_id):
-    return models.storage.all(cls='School', id=school_id)
+def load_user(user_id):
+    return models.storage.all(cls='School', id=user_id)
 
 class School(Base, UserMixin):
     """The school class"""

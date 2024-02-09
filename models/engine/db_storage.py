@@ -64,5 +64,5 @@ class DBStorage():
         if email:
             return self.__session.query(cls).filter(cls.email == email).first()
         if id:
-            return self.__session.query(cls).filter(cls.email == id).first()
+            return self.__session.query(cls).filter(cls.id == id).first()
         return self.__session.query(all_classes[cls]).all()
