@@ -3,7 +3,6 @@
     Contain the Staff Class
 """
 from models.basemodel import BaseModel, Base
-from models.basemodel import BaseModel
 from models.school import School
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
@@ -23,6 +22,7 @@ class Staff(BaseModel, Base):
     school_id = Column(String(60), ForeignKey('schools.id'), nullable=False)
 
     school = relationship("School", back_populates="staffs")
+    posts = relationship("Post", foreign_keys="[Post.staff_id]")
 
     def __init__(self, *args, **kwargs):
         """Class instantiation"""

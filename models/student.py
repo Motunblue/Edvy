@@ -20,6 +20,7 @@ class Student(BaseModel, Base):
     #class_id = Column(String(60), ForeignKey('class.id'), nullable=False)
 
     school = relationship("School", back_populates='students')
+    posts = relationship("Post", foreign_keys="[Post.student_id]")
 
     def __init__(self, *args, **kwargs):
         """Class instantiation"""

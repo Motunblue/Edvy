@@ -2,7 +2,7 @@
 """
     The Database storage class
 """
-from models.basemodel import Base
+from models.basemodel import Base, BaseModel
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy import func
@@ -13,11 +13,14 @@ import models
 from models.student import Student
 from models.staff import Staff
 from models.school import School
+from models.post import Post
+
 
 class DBStorage():
     """Connects to the mysql Database"""
     __engine = None
     __session = None
+
 
     def __init__(self):
         """Creates database engine"""
@@ -33,7 +36,7 @@ class DBStorage():
                                     )
 
         #if Edvy_ENV == 'test':
-         #   Base.metadata.drop_all(self.__engine)
+        #Base.metadata.drop_all(self.__engine)
         
 
     def new(self, obj):
@@ -56,4 +59,51 @@ class DBStorage():
         all_classes = {"Student": Student, "School": School, "Staff": Staff}
         last_id = self.__session.query(func.max(all_classes[cls].id)).scalar()
         return last_id
+
+    def all(self, cls=None):
+        """Retrieve all rows of a table"""
+        new_dict = {}
+        classes = [User, Place, State, City, Amenity, Review]
+
+        if cls:
+            classes = [cls]
+
+        for c in classes:
+            objs = self.__session.query(c).all()
+            for obj in objs:
+                k = f"{obj.__class__.__name__}.{obj.id}"
+                new_dict[k] = obj
+
+        return new_dict
+
+    def count(self, cls=None):
+        """Count the number of object in storage"""
+        self.reload()
+        if cls:
+            new_dict = self.all(cls)
+        else:
+            new_dict = self.all()
+
+        return len(new_dict)
+
+    def get(self, cls, id):
+        """Retrieve a single row"""
+        if not cls:
+            return None
+
+        self.reload()
+        k = cls.__name__ + '.' + id
+        new_dict = self.all(cls)
+        if k in new_dict:
+            obj = new_dict[k]
+            return obj
+
+        return None
+
+
+    def delete(self, obj=None):
+        """Delete from database"""
+        if obj is not None:
+            self.__session.delete(obj)
+
 
