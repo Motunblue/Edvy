@@ -1,0 +1,46 @@
+.side-nav, .register-type{
+    background-color: #CFDFEF;
+    height: 100vh;
+    width: 10em;
+    position: fixed;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.side-nav {
+    justify-content: space-between;
+}
+
+.profile {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 34px;
+    background-image:  url('../assests/profile-icon.png');
+    background-repeat: no-repeat;
+}
+.nav-block {
+    width: 100%;
+}
+
+.nav-el {
+    margin-top: 20vh;
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.register-icon {
+    width: 35px;
+    height: 37px;
+    background-image: url('../assests/register-icon.png');
+    background-repeat: no-repeat;
+}
+.register-type {
+    transition: left 0.5s ease-in;
+    z-index: -1;
+}
+.register-type-hovered {
+    left: 10em;
+}

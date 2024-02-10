@@ -1,11 +1,5 @@
 {% extends 'base.html' %}
 
-{% block title %}Edvy - Sign-up{% endblock %}
-
-{% block header_scripts %}
-  <script type="text/javascript" src="{{ url_for('static', filename='scripts/loginsignup.js') }}?cache_id={{ cache_id }}"></script>
-{% endblock %}
-
 {% block css %}
   <link href="{{url_for('static', filename='styles/baseloginsignup.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
 {% endblock %}

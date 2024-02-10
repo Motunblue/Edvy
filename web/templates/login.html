@@ -1,0 +1,35 @@
+{% extends 'baseloginsignup.html' %}
+
+{% block title %}Edvy - Login{% endblock %}
+
+{% block form %}
+<legend>LOG IN</legend>
+  <form method="POST" action="">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+      <div class="label-container">
+        {% if admin %}
+          <label for="email", class="school-icon-label">
+            <i class="school-email-icon"></i>
+            {{ form.email(class="school-input") }}
+          </label>
+          {% else %}
+          <label for="user_id", class="school-icon-label">
+            <i class="login-id-icon"></i>
+            {{ form.user_id(class="school-input") }}  
+          </label>
+        {% endif %}
+      </div>
+      <div class="label-container">
+        <label for="password", class="school-icon-label">
+          <i class="login-pwd-icon"></i>
+          {{ form.password(class="school-input") }}
+        </label>
+      </div>
+    </fieldset>
+    <div class="submit">
+      {{ form.submit(class="submit-btn") }}
+    </div>
+  </form>
+<p class="account-text">Don't have an account? <a class="anchor" href="{{ url_for('signup') }}">sign-up</a></p>
+{% endblock %}

@@ -61,12 +61,15 @@ form {
     border: 0;
 }
 
+.label-container {
+    margin: 20px 0px;
+}
+
 .school-icon-label {
     display: flex;
   align-items: center;
   padding: 16px 20px;
   border-radius: 7px;
-  margin: 20px 0px;
   background-color: #DEDEDE;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   width: 20vw;
@@ -88,6 +91,9 @@ form {
 }
 .login-pwd-icon {
     background-image: url('../assests/thumbsup.png');
+}
+.login-id-icon {
+    background-image: url('../assests/user-icon.png');
 }
 
 .school-icon-label input {
@@ -131,4 +137,11 @@ form {
 
 .invalid {
     background-color: red;
+}
+
+.errors {
+    color: red;
+    font-size: 12px;
+    margin: 2px 0px;
+    list-style: none;
 }
