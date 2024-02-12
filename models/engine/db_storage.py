@@ -60,21 +60,6 @@ class DBStorage():
         last_id = self.__session.query(func.max(all_classes[cls].id)).scalar()
         return last_id
 
-    def all(self, cls=None):
-        """Retrieve all rows of a table"""
-        new_dict = {}
-        classes = [User, Place, State, City, Amenity, Review]
-
-        if cls:
-            classes = [cls]
-
-        for c in classes:
-            objs = self.__session.query(c).all()
-            for obj in objs:
-                k = f"{obj.__class__.__name__}.{obj.id}"
-                new_dict[k] = obj
-
-        return new_dict
 
     def count(self, cls=None):
         """Count the number of object in storage"""
@@ -107,3 +92,12 @@ class DBStorage():
             self.__session.delete(obj)
 
 
+    def all(self, cls, email=None, id=None):
+        """Get all class"""
+        all_classes = {"Student": Student, "School": School, "Staff": Staff}
+        cls = all_classes[cls]
+        if email:
+            return self.__session.query(cls).filter(cls.email == email).first()
+        if id:
+            return self.__session.query(cls).filter(cls.email == id).first()
+        return self.__session.query(all_classes[cls]).all()

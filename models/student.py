@@ -16,11 +16,11 @@ class Student(BaseModel, Base):
     __tablename__ = 'students'
 
     id = Column(String(60), nullable=False, primary_key=True)
-    school_id = Column(String(60), ForeignKey('schools.id'), nullable=False)
+    school_id = Column(String(16), ForeignKey('schools.id'), nullable=False)
     #class_id = Column(String(60), ForeignKey('class.id'), nullable=False)
 
-    school = relationship("School", back_populates='students')
     posts = relationship("Post", foreign_keys="[Post.student_id]")
+    #school = relationship("School", back_populates='students')
 
     def __init__(self, *args, **kwargs):
         """Class instantiation"""

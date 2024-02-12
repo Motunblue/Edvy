@@ -1,1 +1,13 @@
 {% extends 'users/dashboard.html' %}
+{% block form %}
+<legend>Register Student</legend>
+<form method="POST" action="">
+	{{ form.hidden_tag() }}
+	<fieldset class="form-group">
+		<div class="label-container">
+			<label for="first_name", class="school-icon-label">
+				<i class="first-name-icon"></i>
+				{{ form.first_name(class="school-input") }}
+			</label>
+		</div>
+{% endblock %}

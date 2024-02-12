@@ -8,22 +8,30 @@ from models.basemodel import BaseModel
 from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
+from web import login_manager
+from flask_login import UserMixin
 
 
-class School(Base):
+@login_manager.user_loader
+def load_school(school_id):
+    return models.storage.all(cls='School', id=school_id)
+
+class School(Base, UserMixin):
     """The school class"""
     __tablename__ = "schools"
     
-    id = Column(String(128), nullable=False, primary_key=True)
-    name = Column(String(100), nullable=False)
-    email = Column(String(60))
-    address = Column(String(60))
-    phone_number = Column(String(60), nullable=False)
-    admin_name = Column(String(45), nullable=False)
+    id = Column(String(16), nullable=False, primary_key=True)
+    name = Column(String(128), nullable=False)
+    email = Column(String(60), nullable=False, unique=True)
+    password = Column(String(60), nullable=False)
+    address = Column(String(128))
+    phone_number = Column(String(16))
+    #admin_name = Column(String(45), nullable=False)
+    logo = Column(String(60), nullable=False, default="default.png")
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
-    students = relationship('Student', back_populates='school')
+    students = relationship('Student', backref='school')
     staffs = relationship('Staff', back_populates='school')
 
     def __init__(self, *args, **kwargs):
