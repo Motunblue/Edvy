@@ -1,18 +1,13 @@
 $(document).ready(() => {
-    $('#register').hover(() => {
-        const registerType = $('#register-type');
-            registerType.css("display", "flex")
-            registerType.animate({left: "10em"}, 200)
-            registerType.addClass('register-type-hovered')
-        }, () => {
-            $('#register-type').animate({left: -0}, 100)
-            $('#register-type').css("display", "none")
-        }
-    )
-    $('#register-type').hover(() => {
-        $(this).addClass('register-type-hovered')
-    }, () => {
-        $(this).removeClass('register-type-hovered')
-    }
-    )
-});
+    $('.nav-el').hover(function() {
+        $(this).find('#nav-icon-cont').addClass('nav-icon-cont');
+    }, function() {
+        $(this).find('#nav-icon-cont').removeClass('nav-icon-cont');
+    });
+    $('#nav-register').click(() => {
+        window.location.href = 'http://localhost:5000/admin/register'
+    });
+    $('#nav-blog').click(() => {
+        window.location.href = 'http://localhost:5000/admin/blog'
+    });
+})
