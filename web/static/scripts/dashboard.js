@@ -10,4 +10,7 @@ $(document).ready(() => {
     $('#nav-blog').click(() => {
         window.location.href = 'http://localhost:5000/admin/blog'
     });
+    $('#nav-blog-post').click(() => {
+        window.location.href = 'http://localhost:5000/admin/blog/create-post'
+    });
 })

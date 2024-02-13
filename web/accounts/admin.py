@@ -29,8 +29,13 @@ def adminLogin():
 @admin_bp.route('/blog', methods=['GET'], strict_slashes=False)
 def adminBlog():
     """Admin blog"""
-    return render_template('users/blog.html', cached_id=str(uuid.uuid4()),
-                           school_logo="default.png")
+    return render_template('users/blog.html', cached_id=str(uuid.uuid4()))
+
+
+@admin_bp.route('/blog/create-post', methods=['GET', 'POST'], strict_slashes=False)
+def adminPost():
+    """Admin blog"""
+    return render_template('users/post.html', cached_id=str(uuid.uuid4()))
 
 @admin_bp.route('/logout', methods=['GET'], strict_slashes=False)
 def adminLogout():

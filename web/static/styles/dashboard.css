@@ -67,22 +67,60 @@ header {
     border-bottom: 2px solid #DF9D68;
     display: flex;
     justify-content: space-between;
-    position: relative;
 }
-.header > .school-name {
-    position: absolute;
-    bottom: 8px;
-    margin-right: 12px;
+header > .school-name {
+    margin-left: 48px;
+    margin-top: 8px;
+}
+header > .school-name > h4{
+    font-size: 32px;
+    font-weight: 500;
 }
 
 .logout {
-    position: absolute;
-    bottom: 8px;
     margin-right: 16em;
     font-size: 14px;
+    position: relative;
 }
 
 .logout > a {
     text-decoration: none;
     color: inherit;
+    position: absolute;
+    bottom: 8px;
+}
+
+.blog-body {
+    display: flex;
+}
+
+.blog-content {
+    width: 70%;
+}
+.blog-side-bar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12em;
+}
+
+.blog-post {
+    margin-top: 12em;
+    gap: 10px;
+}
+.blog-post-icon {
+    width: 37px;
+    height: 37px;
+    background-image: url('../assests/post-icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.blog-side-bar-post > a {
+    text-decoration: none;
+    color: inherit;
+}
+.animation-container {
+    width: 100%;
+    height: 20em;
 }
