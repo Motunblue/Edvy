@@ -27,7 +27,7 @@ class School(Base, UserMixin):
     address = Column(String(128))
     phone_number = Column(String(16))
     #admin_name = Column(String(45), nullable=False)
-    logo = Column(String(60), nullable=False, default="default.png")
+    picture = Column(String(60), nullable=False, default="default.png")
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
 
