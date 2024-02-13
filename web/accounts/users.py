@@ -14,7 +14,7 @@ def studentSignUp():
     if form.validate_on_submit():
         flash('Account created succesfully for {}. Please login!'.format(form.student_name.data), 'success')
         return(redirect(url_for('users_bp.studentSignUp')))
-    return render_template('users/student_signup.html', form=form, ccache_id=str(uuid.uuid4()))
+    return render_template('users/student_signup.html', form=form)
 
 @users_bp.route('/login', methods=['GET', 'POST'], strict_slashes=False)
 def userLogin():

@@ -13,7 +13,7 @@ class StudentRegistrationForm(FlaskForm):
 
         last_name = StringField('last name',
                 validators=[DataRequired(), Length(min=3, max=45)],
-                render_kw={'placeholder': 'first name'}
+                render_kw={'placeholder': 'last name'}
                 )
 
         password = PasswordField('password', validators=[DataRequired()],
@@ -22,6 +22,7 @@ class StudentRegistrationForm(FlaskForm):
 
         confirm_password = PasswordField('confirm Password',
                 validators=[DataRequired(), EqualTo('password')],
+                render_kw={'placeholder': 'confirm password'}
                 )
 
         submit = SubmitField('Register')
