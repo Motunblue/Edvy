@@ -2,6 +2,7 @@
 
 {% block header_scripts %}
 <script type="text/javascript" src="{{ url_for('static', filename='scripts/dashboard.js') }}?cache_id={{ cache_id }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js"></script>
 {% endblock %}
 
 {% block css %}
@@ -26,7 +27,7 @@
       </div>
     </div>
     <div class="profile">
-      <img src="../../static/assests/schoool_logos/{{ school_logo }}" style="width: 70px; height: 70px;">
+      <img src="../../static/assests/schoool_logos/{{ current_user.picture }}" style="width: 70px; height: 70px;">
     </div>
   </div>
   <div class="content-block">
