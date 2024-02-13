@@ -16,9 +16,6 @@ class BaseModel():
     """The class that other classes will inherit from"""
     created_at = Column(DateTime, default=datetime.utcnow)
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    first_name = Column(String(45), nullable=False)
-    last_name = Column(String(45), nullable=False)
-    password = Column(String(45), nullable=False)
 
     def __init__(self, *args, **kwargs):
         """The instantiation method"""
@@ -26,12 +23,6 @@ class BaseModel():
             for k, v in kwargs.items():
                 if (k != "__class__"):
                  setattr(self, k, v)
-
-        else:
-            self.firstname = ""
-            self.lastname = ""
-            self.password = ""
-
         self.created_at = datetime.utcnow() 
         self.updated_at = self.created_at
 
@@ -45,7 +36,6 @@ class BaseModel():
         self.updated_at = datetime.utcnow()
         models.storage.new(self)
         models.storage.save()
-
 
     def to_dict(self):
         """Returns dictionary representation of the class instance"""

@@ -1,11 +1,12 @@
 #!/usr/bin/python3
 """ Admin routes """
 from flask import Blueprint, render_template, redirect, url_for, flash
-from web.forms import LoginForm
+from web.forms import LoginForm, PostBlog
 import uuid
 import bcrypt
 from models import storage
 from flask_login import login_user, current_user, logout_user
+from models.post import Post
 
 admin_bp = Blueprint('admin_bp', __name__, url_prefix='/admin') 
 
@@ -35,7 +36,13 @@ def adminBlog():
 @admin_bp.route('/blog/create-post', methods=['GET', 'POST'], strict_slashes=False)
 def adminPost():
     """Admin blog"""
-    return render_template('users/post.html', cached_id=str(uuid.uuid4()))
+    form = PostBlog()
+    if form.validate_on_submit():
+        post = (Post(title=form.title.data, content=form.content.data, school_id=current_user.id))
+        post.save()
+        return redirect(url_for('admin_bp.adminBlog'))
+    return render_template('users/post.html', form=form,
+                           cached_id=str(uuid.uuid4()))
 
 @admin_bp.route('/logout', methods=['GET'], strict_slashes=False)
 def adminLogout():

@@ -5,7 +5,7 @@
 import models
 from models.basemodel import Base
 from models.basemodel import BaseModel
-from sqlalchemy import Column, String, ForeignKey, DateTime
+from sqlalchemy import Column, String, DateTime
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from web import login_manager
@@ -16,7 +16,7 @@ from flask_login import UserMixin
 def load_user(user_id):
     return models.storage.all(cls='School', id=user_id)
 
-class School(Base, UserMixin):
+class School(Base, BaseModel, UserMixin):
     """The school class"""
     __tablename__ = "schools"
     
@@ -26,31 +26,16 @@ class School(Base, UserMixin):
     password = Column(String(60), nullable=False)
     address = Column(String(128))
     phone_number = Column(String(16))
-    #admin_name = Column(String(45), nullable=False)
     picture = Column(String(60), nullable=False, default="default.png")
-    created_at = Column(DateTime, default=datetime.utcnow)
-    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-
     students = relationship('Student', backref='school', cascade="all, delete-orphan")
-    staffs = relationship('Staff', back_populates='school')
+    staffs = relationship('Staff', backref='school', cascade="all, delete-orphan")
+    posts = relationship('Post', backref="school", cascade="all, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """The instantiation method"""
-        if kwargs:
-            for k, v in kwargs.items():
-                if (k != "__class__"):
-                    setattr(self, k, v)
-
-        self.created_at = datetime.utcnow()
-        self.updated_at = self.created_at
+        super().__init__(*args, **kwargs)
         self.generate_id()
 
-
-    def save(self):
-        """Store the new obj"""
-        self.updated_at = datetime.utcnow()
-        models.storage.new(self)
-        models.storage.save()
 
     def generate_id(self):
         """Generate id"""

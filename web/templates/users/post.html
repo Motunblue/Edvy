@@ -1,2 +1,26 @@
 {% extends "users/dashboard.html" %}
 
+{% block dashboard_content %}
+<div class="create-blog-cont">
+  <p>Make a Post</p>
+  <form method="POST" action="" class="post-form">
+    {{ form.hidden_tag() }}
+    <fieldset class="post-form-group">
+      <div class="post-input post-title">
+        {{ form.title.label }}
+        {{ form.title }}
+      </div>
+      <div class="post-input post-content">
+        {{ form.content.label }}
+        {{ form.content }}
+      </div>
+    </fieldset>
+    <div class="post-submit">
+      <label for="submit">
+        <i class="post-submit-hover"></i>
+        {{ form.submit(class="submit-btn") }}
+      </label>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField, BooleanField
+from wtforms import StringField, PasswordField, SubmitField, BooleanField, TextAreaField
 from wtforms.validators import DataRequired, Length, Email, EqualTo, ValidationError
 from models import storage
 
@@ -45,14 +45,10 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Login')
 
 
-""" class UserLoginForm(FlaskForm):
-    user_id = StringField('id',
-                        validators=[DataRequired(), Email()],
-                        render_kw={'placeholder': 'id'}
-                    )
-    password = PasswordField('password', validators=[DataRequired()],
-                            render_kw={'placeholder': 'password'}
-                            )
-
-    remember = BooleanField('Remember Me')
-    submit = SubmitField('Login') """
+class PostBlog(FlaskForm):
+    """Post a blog"""
+    title = TextAreaField('Post Title', 
+                        validators=[DataRequired(), Length(min=2, max=125)])
+    content = TextAreaField('Content', 
+                        validators=[DataRequired(), Length(min=2, max=2048)])
+    submit = SubmitField('post')

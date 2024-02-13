@@ -7,12 +7,11 @@ from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy import func
 from sqlalchemy.orm import scoped_session, sessionmaker
-import models
 import sqlalchemy
-import models
 from models.student import Student
 from models.staff import Staff
 from models.school import School
+from models.post import Post
 
 class DBStorage():
     """Connects to the mysql Database"""

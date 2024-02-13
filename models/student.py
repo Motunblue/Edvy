@@ -17,9 +17,11 @@ class Student(BaseModel, Base):
 
     id = Column(String(60), nullable=False, primary_key=True)
     school_id = Column(String(16), ForeignKey('schools.id'), nullable=False)
-    #class_id = Column(String(60), ForeignKey('class.id'), nullable=False)
+    first_name = Column(String(45), nullable=False)
+    last_name = Column(String(45), nullable=False)
+    password = Column(String(45), nullable=False)
 
-    #school = relationship("School", back_populates='students')
+    posts = relationship('Post', backref="student", cascade="all, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """Class instantiation"""

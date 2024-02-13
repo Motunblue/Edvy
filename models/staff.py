@@ -16,13 +16,16 @@ class Staff(BaseModel, Base):
     __tablename__ = "staffs"
 
     id = Column(String(60), nullable=False, primary_key=True)
+    first_name = Column(String(45), nullable=False)
+    last_name = Column(String(45), nullable=False)
+    password = Column(String(45), nullable=False)
     email = Column(String(60))
     address = Column(String(60))
     profession = Column(String(60), nullable=False)
     phone_number = Column(String(60), nullable=False)
     school_id = Column(String(60), ForeignKey('schools.id'), nullable=False)
 
-    school = relationship("School", back_populates="staffs")
+    posts = relationship('Post', backref="staff", cascade="all, delete-orphan")
 
     def __init__(self, *args, **kwargs):
         """Class instantiation"""
