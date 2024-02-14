@@ -18,7 +18,7 @@ class BaseModel():
     updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     first_name = Column(String(45), nullable=False)
     last_name = Column(String(45), nullable=False)
-    password = Column(String(45), nullable=False)
+    password = Column(String(128), nullable=False)
 
 
     def __init__(self, *args, **kwargs):

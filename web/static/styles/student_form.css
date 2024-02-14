@@ -88,7 +88,7 @@ div {
 }
 
 .name-icon {
-  background-image: url('../assests/school-buiding-icon.svg');
+  background-image: url('../assests/user-icon.png');
   background-repeat: no-repeat;
 }
 
@@ -138,7 +138,15 @@ form {
  
 .submit-btn:active {
   background-color: purple;
-  }
+}
+
+.errors {
+  color: red;
+  font-size: 1em;
+  margin: 0px 0px;
+  padding: 0px, 0px;
+  list-style: none;
+}
 
 label {
   display: block;

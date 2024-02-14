@@ -5,7 +5,7 @@ from models.school import School
 from models.staff import Staff
 from models.post import Post
 
-sc = School(name="unilag", phone_number="1362781", admin_name="qr") 
+sc = School(name="unilag", phone_number="1362781", admin_name="qr", password="123") 
 sc.save()
 
 st = Student(first_name="Ibrahim", last_name="Ajibose", password="12345", school_id=sc.id)

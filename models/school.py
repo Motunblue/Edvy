@@ -22,7 +22,7 @@ class School(Base, UserMixin):
     
     id = Column(String(16), nullable=False, primary_key=True)
     name = Column(String(128), nullable=False)
-    email = Column(String(60), nullable=False, unique=True)
+    email = Column(String(60), unique=True)
     password = Column(String(60), nullable=False)
     address = Column(String(128))
     phone_number = Column(String(16))

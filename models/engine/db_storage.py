@@ -35,8 +35,8 @@ class DBStorage():
                                     f'{Edvy_MYSQL_DB}'
                                     )
 
-        #if Edvy_ENV == 'test':
-        #Base.metadata.drop_all(self.__engine)
+        if Edvy_ENV == 'test':
+            Base.metadata.drop_all(self.__engine)
         
 
     def new(self, obj):
