@@ -47,6 +47,9 @@ class BaseModel():
             my_dict[k] = v
 
         my_dict["__class__"] = self.__class__.__name__
-
-
+    
+        if "_sa_instance_state" in my_dict:
+            del my_dict["_sa_instance_state"]
+        if "password" in my_dict:
+            del my_dict["password"]
         return my_dict

@@ -7,7 +7,6 @@ from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy import func
 from sqlalchemy.orm import scoped_session, sessionmaker
-import sqlalchemy
 from models.student import Student
 from models.staff import Staff
 from models.school import School
@@ -58,10 +57,18 @@ class DBStorage():
 
     def all(self, cls, email=None, id=None):
         """Get all class"""
-        all_classes = {"Student": Student, "School": School, "Staff": Staff}
+        all_classes = {"Student": Student, "School": School, "Staff": Staff, "Post": Post}
         cls = all_classes[cls]
         if email:
             return self.__session.query(cls).filter(cls.email == email).first()
         if id:
             return self.__session.query(cls).filter(cls.id == id).first()
-        return self.__session.query(all_classes[cls]).all()
+        return self.__session.query(cls).all()
+
+    def get_post(self, school_id):
+        """Get post"""
+        return self.__session.query(Post).filter(Post.school_id == school_id).all()
+
+    def close(self):
+        """remove session"""
+        self.__session.remove()

@@ -3,11 +3,7 @@
     Contain the Post Class
 """
 from models.basemodel import Base, BaseModel
-from datetime import datetime
-from sqlalchemy import Column, String, Integer, ForeignKey, DateTime
-from sqlalchemy.orm import relationship, polymorphic_union
-import models
-from datetime import datetime
+from sqlalchemy import Column, String, Integer, ForeignKey
 
 
 class Post(Base, BaseModel):

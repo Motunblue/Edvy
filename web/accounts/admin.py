@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ Admin routes """
-from flask import Blueprint, render_template, redirect, url_for, flash, request
+from flask import Blueprint, render_template, redirect, url_for, flash, request, session
 from web.forms import LoginForm, PostBlog
 import uuid
 import bcrypt
@@ -20,6 +20,8 @@ def adminLogin():
         sc = storage.all(cls='School', email=form.email.data)
         if sc and bcrypt.checkpw(form.password.data.encode('utf-8'), sc.password.encode('utf-8')):
             login_user(sc, form.remember.data)
+            session['admin_id'] = sc.id
+            session['admin_id'] = sc.school_id
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('admin_bp.adminBlog'))
         else:

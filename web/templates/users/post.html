@@ -1,7 +1,7 @@
 {% extends "users/dashboard.html" %}
 
 {% block dashboard_content %}
-<div class="create-blog-cont">
+<main class="create-blog-cont">
   <p>Make a Post</p>
   <form method="POST" action="" class="post-form">
     {{ form.hidden_tag() }}
@@ -22,5 +22,5 @@
       </label>
     </div>
   </form>
-</div>
+</main>
 {% endblock %}

@@ -11,7 +11,7 @@
 
 {% block content %}
 <div id="dashboard" class="dashboard">
-  <div class="side-nav">
+  <nav class="side-nav">
     <div class="nav-block">
       <div id="nav-blog" class="blog, nav-el">
         <div id="nav-icon-cont">
@@ -29,7 +29,7 @@
     <div class="profile">
       <img src="../../static/assests/schoool_logos/{{ current_user.picture }}" style="width: 70px; height: 70px;">
     </div>
-  </div>
+  </nav>
   <div class="content-block">
     {% block dashboard_header %}
       <header>
