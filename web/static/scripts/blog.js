@@ -11,14 +11,22 @@ $.ajax({
     },
     success: (data) => {
         data.forEach(post => {
-            blogContentEl.append(`
+            const parsedDate = moment.utc(post.updated_at);
+            post.content = post.content.replace(/\n/g, "<br>");
+
+            $('#blog-content').append(`
                 <article>
                     <div>
-                        <h2>${post.title}</h2>
-                        <div>${post.content}</div>
+                        <div class="blog-content-title">
+                            <h5>${post.title}</h5>
+                            <div>posted on ${parsedDate.format('L LT')} by ${post.by.name}</div>
+                        </div>
+                        <p class="blog-content-content">${post.content}</p>
                     </div>
                 </article>
             `);
         });
     },
 });
+
+$(".blog").css("background-color", "#F0F7FF");

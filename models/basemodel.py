@@ -52,4 +52,6 @@ class BaseModel():
             del my_dict["_sa_instance_state"]
         if "password" in my_dict:
             del my_dict["password"]
+        if "picture" in my_dict:
+            del my_dict["picture"]
         return my_dict

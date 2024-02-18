@@ -31,6 +31,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 6px 0px;
 }
 .nav-el:hover {
     cursor: pointer;
@@ -41,6 +42,7 @@
     border-radius: 25px;
 }
 .nav-el > p {
+    margin: 0;
     margin-top: 6px;
 }
 
@@ -94,9 +96,26 @@ header > .school-name > h4{
     display: flex;
 }
 
-.blog-content {
+#blog-content {
     width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10vh;
 }
+#blog-content > article {
+    width: 60%;
+}
+.blog-content-title > h5 {
+    font-size: inherit;
+    margin-bottom: 4px;
+}
+.blog-content-title > div {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
 .blog-side-bar {
     width: 30%;
     display: flex;
