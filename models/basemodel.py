@@ -3,13 +3,20 @@
     Creates the Base class
 """
 import models
-import sqlalchemy
 from datetime import datetime
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, DateTime
 from sqlalchemy.ext.declarative import declarative_base
-
+from web import login_manager
 
 Base = declarative_base()
+
+@login_manager.user_loader
+def load_user(user_id):
+    if user_id[:3] == "STD":
+        return models.storage.all(cls='Student', id=user_id)
+    elif user_id[:3] == "STF":
+        return models.storage.all(cls='Staff', id=user_id)
+    return models.storage.all(cls='School', id=user_id)
 
 
 class BaseModel():

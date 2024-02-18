@@ -11,9 +11,6 @@ app.register_blueprint(app_views)
 
 cores = CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
 
-@app.route('/')
-def home():
-    return "Hello"
 
 @app.teardown_appcontext
 def close_db(error):

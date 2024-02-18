@@ -12,7 +12,7 @@ def userLogin():
     form = LoginForm()
     form.email.validators = []
     if form.validate_on_submit():
-        return redirect(url_for('user_bp.userBlog'))
+        return redirect(url_for('users_bp.userBlog'))
     return render_template('login.html', admin=False,
                         form=form, cache_id=str(uuid.uuid4())
                         )

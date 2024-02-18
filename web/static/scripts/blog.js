@@ -13,6 +13,7 @@ $.ajax({
         data.forEach(post => {
             const parsedDate = moment.utc(post.updated_at);
             post.content = post.content.replace(/\n/g, "<br>");
+            post_by = userData.school_id === "null" ? post.by.name : `${post.by.first_name} ${post.by.lastname}`
 
             $('#blog-content').append(`
                 <article>

@@ -67,7 +67,8 @@ class DBStorage():
 
     def get_post(self, school_id):
         """Get post"""
-        return self.__session.query(Post).filter(Post.school_id == school_id).all()
+        return self.__session.query(Post).filter(Post.school_id == school_id)\
+            .order_by(Post.updated_at.desc()).all()
 
     def close(self):
         """remove session"""
