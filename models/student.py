@@ -7,7 +7,6 @@ from models.basemodel import BaseModel, Base
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm.exc import NoResultFound
-import sqlalchemy
 import models
 
 
@@ -45,4 +44,4 @@ class Student(BaseModel, Base):
             id_int = int(last_id.split('-')[-1]) + 1
         else:
             id_int = 1
-        self.id = f"{school_initial}-STD-{id_int:04d}"
+        self.id = f"STD-{school_initial}-{id_int:04d}"

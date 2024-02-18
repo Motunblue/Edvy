@@ -48,4 +48,4 @@ class Staff(BaseModel, Base):
             id_int = int(last_id.split('-')[-1]) + 1
         else:
             id_int = 1
-        self.id = f"{school_initial}-STF-{id_int:04d}"
+        self.id = f"STF-{school_initial}-{id_int:04d}"

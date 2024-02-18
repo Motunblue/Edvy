@@ -5,16 +5,10 @@
 import models
 from models.basemodel import Base
 from models.basemodel import BaseModel
-from sqlalchemy import Column, String, DateTime
+from sqlalchemy import Column, String
 from sqlalchemy.orm import relationship
-from datetime import datetime
-from web import login_manager
 from flask_login import UserMixin
 
-
-@login_manager.user_loader
-def load_user(user_id):
-    return models.storage.all(cls='School', id=user_id)
 
 class School(Base, BaseModel, UserMixin):
     """The school class"""
