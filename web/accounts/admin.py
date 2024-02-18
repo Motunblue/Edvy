@@ -19,6 +19,7 @@ def adminLogin():
     if form.validate_on_submit():
         sc = storage.all(cls='School', email=form.email.data)
         if sc and bcrypt.checkpw(form.password.data.encode('utf-8'), sc.password.encode('utf-8')):
+            session['admin_id'] = sc.id
             login_user(sc, form.remember.data)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('admin_bp.adminBlog'))

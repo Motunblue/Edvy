@@ -11,6 +11,7 @@ class Post(Base, BaseModel):
     __tablename__ = "posts"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(125), nullable=False)
     content = Column(String(2048), nullable=False)
     school_id = Column(String(60), ForeignKey('schools.id'), nullable=False)

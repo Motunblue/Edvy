@@ -2,7 +2,7 @@
 """
     The Database storage class
 """
-from models.basemodel import Base
+from models.basemodel import Base, BaseModel
 from os import getenv
 from sqlalchemy import create_engine
 from sqlalchemy import func
@@ -17,6 +17,7 @@ class DBStorage():
     __engine = None
     __session = None
 
+
     def __init__(self):
         """Creates database engine"""
         Edvy_MYSQL_USER = getenv('Edvy_MYSQL_USER')
@@ -30,8 +31,8 @@ class DBStorage():
                                     f'{Edvy_MYSQL_DB}'
                                     )
 
-        #if Edvy_ENV == 'test':
-         #   Base.metadata.drop_all(self.__engine)
+        if Edvy_ENV == 'test':
+            Base.metadata.drop_all(self.__engine)
         
 
     def new(self, obj):
@@ -54,6 +55,38 @@ class DBStorage():
         all_classes = {"Student": Student, "School": School, "Staff": Staff}
         last_id = self.__session.query(func.max(all_classes[cls].id)).scalar()
         return last_id
+
+
+    def count(self, cls=None):
+        """Count the number of object in storage"""
+        self.reload()
+        if cls:
+            new_dict = self.all(cls)
+        else:
+            new_dict = self.all()
+
+        return len(new_dict)
+
+    def get(self, cls, id):
+        """Retrieve a single row"""
+        if not cls:
+            return None
+
+        self.reload()
+        k = cls.__name__ + '.' + id
+        new_dict = self.all(cls)
+        if k in new_dict:
+            obj = new_dict[k]
+            return obj
+
+        return None
+
+
+    def delete(self, obj=None):
+        """Delete from database"""
+        if obj is not None:
+            self.__session.delete(obj)
+
 
     def all(self, cls, email=None, id=None):
         """Get all class"""

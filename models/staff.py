@@ -3,7 +3,6 @@
     Contain the Staff Class
 """
 from models.basemodel import BaseModel, Base
-from models.basemodel import BaseModel
 from models.school import School
 from sqlalchemy import Column, String, ForeignKey
 from sqlalchemy.orm import relationship

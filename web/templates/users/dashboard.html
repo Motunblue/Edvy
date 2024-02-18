@@ -7,6 +7,7 @@
 
 {% block css %}
   <link href="{{url_for('static', filename='styles/dashboard.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
+  <link href="{{url_for('static', filename='styles/student_form.css')}}?cache_id={{ cache_id }}" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -43,5 +44,8 @@
     {% endblock %}
     {% block dashboard_content %}{% endblock %}
   </div>
+</div>
+<div class="getin-tab">
+	{% block form %}{% endblock %}
 </div>
 {% endblock %}
