@@ -1,8 +1,12 @@
 {% extends "users/dashboard.html" %}
 
+{% block dashboard_css %}
+<link href="{{url_for('static', filename='styles/postblog.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
+{% endblock %}
+
 {% block dashboard_content %}
 <main class="create-blog-cont">
-  <p>Make a Post</p>
+  <legend>Make a Post</legend>
   <form method="POST" action="" class="post-form">
     {{ form.hidden_tag() }}
     <fieldset class="post-form-group">
@@ -18,7 +22,7 @@
     <div class="post-submit">
       <label for="submit">
         <i class="post-submit-hover"></i>
-        {{ form.submit(class="submit-btn") }}
+        {{ form.submit(class="post-submit-btn") }}
       </label>
     </div>
   </form>

@@ -1,0 +1,51 @@
+.blog-body {
+    display: flex;
+}
+
+#blog-content {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10vh;
+}
+#blog-content > article {
+    width: 60%;
+}
+.blog-content-title > h5 {
+    font-size: inherit;
+    margin-bottom: 4px;
+}
+.blog-content-title > div {
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.blog-side-bar {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12em;
+}
+
+.blog-post {
+    margin-top: 12em;
+    gap: 10px;
+}
+.blog-post-icon {
+    width: 37px;
+    height: 37px;
+    background-image: url('../assests/post-icon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.blog-side-bar-post > a {
+    text-decoration: none;
+    color: inherit;
+}
+.animation-container {
+    width: 100%;
+    height: 20em;
+}

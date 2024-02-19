@@ -1,0 +1,18 @@
+main {
+    margin: 50px 16em;
+}
+
+.user-profile {
+    display: flex;
+    gap: 24px;
+}
+
+.user-profile-pic {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: #DEDEDE;
+}

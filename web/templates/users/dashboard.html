@@ -7,45 +7,61 @@
 
 {% block css %}
   <link href="{{url_for('static', filename='styles/dashboard.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
-  <link href="{{url_for('static', filename='styles/student_form.css')}}?cache_id={{ cache_id }}" rel="stylesheet">
+  {% block dashboard_css %}{% endblock %}
 {% endblock %}
 
 {% block content %}
 <div id="dashboard" class="dashboard">
   <nav class="side-nav">
     <div class="nav-block">
+      <a href="{{ url_for('admin_bp.adminBlog') if admin else url_for('users_bp.userBlog')}}">
       <div id="nav-blog" class="blog nav-el">
         <div id="nav-icon-cont">
           <div class="blog-icon"></div>
         </div>
         <p>Blog</p>
       </div>
-      <div id="nav-register" class="register, nav-el">
+      </a>
+      {% if admin %}
+      <div id="nav-register" class="nav-register nav-el">
         <div id="nav-icon-cont">
           <div class="register-icon"></div>
         </div>
+        <div class="register-type">
+          <a href="/admin/register/student"><p>student</p></a>
+          <a href="/admin/register/staff"><p>staff</p></a>
+        </div>
         <p>Register</p>
       </div>
+      {% endif %}
     </div>
+    <a href="{{ '/admin/account' if admin else '/account'}}">
     <div class="profile">
-      <img src="../../static/assests/schoool_logos/{{ current_user.picture }}" style="width: 70px; height: 70px;">
+      {% if admin %}
+      <img src="../../static/assests/school_logos/{{ current_user.picture }}" style="width: 70px; height: 70px;">
+      {% else %}
+      <img src="../../static/assests/user_imgs/{{ current_user.picture }}" style="width: 70px; height: 70px;">
+      {% endif %}
     </div>
+    </a>
   </nav>
   <div class="content-block">
     {% block dashboard_header %}
       <header>
         <div class="school-name">
-          <h4>{{ current_user.name }}</h4>
+          <a href="{{ '/admin/account' if admin else '/account'}}">
+            <h4 style="font-size: 32px; font-weight: 500;">{{ current_user.name if admin else current_user.first_name }}</h4>
+          </a>
         </div>
         {% if current_user.is_authenticated %}
-          <div class="logout"><a href="{{ url_for('admin_bp.adminLogout') }}">logout</a></div>
+          <div class="logout"><a href="{{ url_for('admin_bp.adminLogout') if admin else  url_for('users_bp.userLogout')}}">logout</a></div>
         {% endif %}
       </header>
     {% endblock %}
     {% block dashboard_content %}{% endblock %}
+    <footer>
+      <p>powered by Edvy ©️</p>
+    </footer>
   </div>
-</div>
-<div class="getin-tab">
-	{% block form %}{% endblock %}
 </div>
 {% endblock %}

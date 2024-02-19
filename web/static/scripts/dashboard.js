@@ -4,13 +4,4 @@ $(document).ready(() => {
     }, function() {
         $(this).find('#nav-icon-cont').removeClass('nav-icon-cont');
     });
-    $('#nav-register').click(() => {
-        window.location.href = 'http://localhost:5000/admin/register'
-    });
-    $('#nav-blog').click(() => {
-        window.location.href = 'http://localhost:5000/admin/blog'
-    });
-    $('#nav-blog-post').click(() => {
-        window.location.href = 'http://localhost:5000/admin/blog/create-post'
-    });
 })

@@ -20,3 +20,7 @@ yarn-error.log*
 Edvy-env
 __pycache__
 Edvy-env
+web/static/assests/user_imgs/*
+web/static/assests/school_logos/*
+!default.png
+

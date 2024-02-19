@@ -12,7 +12,6 @@ def get_post():
     """
     user_id = request.headers.get('User-Id')
     school_id = request.headers.get('School-Id')
-    print(request.headers)
     school_id = user_id if school_id == "null" else school_id
     posts_list = []
     posts = storage.get_post(school_id=school_id)
@@ -20,11 +19,14 @@ def get_post():
         abort(404)
     for post in posts:
         post_dict = post.to_dict()
-        if school_id == user_id:
-            post_dict["by"] = post.school.to_dict()
-        elif user_id[:3] == "STD":
-            post_dict["by"] = post.student.to_dict()
+        if post.student_id:
+            by = post.student.to_dict()
+            post_dict["by"] = f'{by["first_name"]} {by["last_name"]}'
+        elif post.staff_id:
+            by = post.staff.to_dict()
+            post_dict["by"] = f'{by["first_name"]} {by["last_name"]}'
         else:
-            post_dict["by"] = post.staff.to_dict()
+            by = post.school.to_dict()
+            post_dict["by"] = by.get("name")
         posts_list.append(post_dict)
     return jsonify(posts_list)

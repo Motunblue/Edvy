@@ -8,11 +8,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-.side-nav {
     justify-content: space-between;
 }
-
 .profile {
     width: 70px;
     height: 70px;
@@ -45,19 +42,43 @@
     margin: 0;
     margin-top: 6px;
 }
-
-.register-icon {
-    width: 35px;
-    height: 37px;
-    background-image: url('../assests/register-icon.png');
-    background-repeat: no-repeat;
-}
 .blog-icon {
     width: 35px;
     height: 37px;
     background-image: url('../assests/blog-icon.png');
     background-size: cover;
     background-repeat: no-repeat;
+}
+.register-icon {
+    width: 35px;
+    height: 37px;
+    background-image: url('../assests/register-icon.png');
+    background-repeat: no-repeat;
+}
+.nav-register {
+    position: relative;
+}
+
+.register-type {
+    width: 100%;
+    position: absolute;
+    top: -5px;
+    left: 10em;
+    background-color: #CFDFEF;
+    opacity: 0;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(-100%);
+    text-align: center;
+    z-index: 2;
+    padding: 10px 0px;
+}
+.register-type > a {
+    margin-bottom: 8px;
+}
+
+.nav-register:hover .register-type {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .content-block {
@@ -74,10 +95,6 @@ header > .school-name {
     margin-left: 48px;
     margin-top: 8px;
 }
-header > .school-name > h4{
-    font-size: 32px;
-    font-weight: 500;
-}
 
 .logout {
     margin-right: 16em;
@@ -86,162 +103,14 @@ header > .school-name > h4{
 }
 
 .logout > a {
-    text-decoration: none;
-    color: inherit;
     position: absolute;
     bottom: 8px;
 }
 
-.blog-body {
+footer {
+    font-size: small;
     display: flex;
-}
-
-#blog-content {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: 10px;
-    margin-top: 10vh;
-}
-#blog-content > article {
-    width: 60%;
-}
-.blog-content-title > h5 {
-    font-size: inherit;
-    margin-bottom: 4px;
-}
-.blog-content-title > div {
-    font-size: 12px;
-    margin-bottom: 0;
-}
-
-.blog-side-bar {
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12em;
-}
-
-.blog-post {
-    margin-top: 12em;
-    gap: 10px;
-}
-.blog-post-icon {
-    width: 37px;
-    height: 37px;
-    background-image: url('../assests/post-icon.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-.blog-side-bar-post > a {
-    text-decoration: none;
-    color: inherit;
-}
-.animation-container {
-    width: 100%;
-    height: 20em;
-}
-.create-blog-cont {
-    margin: 30px 30px;
-    padding-right: 10em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-.create-blog-cont > p {
-    font-size: 42px;
-}
-.post-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-}
-.post-form-group {
-    border: none;
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 2vh;
-}
-.post-input {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.post-input > textarea {
-    border: #a8a7a7 solid 2px;
-    border-radius: 6px;
-    font-size: inherit;
-    font: inherit;
-    padding: 4px;
-}
-.post-title > textarea {
-    height: 6vh;
-}
-.post-content > textarea {
-    height: 35vh;
-}
-.post-submit {
-    width: 70%;
-    height: 7vh;
-    position: relative;
-}
-.post-submit > label{
-    position: absolute;
-    right: 10px;
-    display: flex;
-    padding: 10px 24px;
-    background-color: #AF3416;
-    border-radius: 20px;
-    gap: 16px;
-}
-.submit-btn {
-    font: inherit;
-    border: none;
-    padding: 0;
-    background-color: inherit;  
-    color: white;
-}
-.post-submit-hover {
-    width: 18px;
-    height: 18px;
-    background-image: url('../assests/send-icon.png');
-    display: none;
-}
-.post-submit > label:hover {
-    cursor: pointer;
-}
-.post-submit > label:hover > i {
-    display: block;
-}
-
-
-.getin-tab {
-    height: 100%;
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: auto;
-}
-
-.form-header {
-  font-size: 1.2em;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  color: #bf2402;
-  color: darkblue;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.alert-success {
-  text-align: center;
-  font-style: italic;
-  color: green;
-  margin-top: 10px;
+    justify-content: center;
+    margin-top: 5rem;
 }

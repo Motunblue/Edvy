@@ -4,24 +4,27 @@
 """
 from models.basemodel import BaseModel, Base
 from models.school import School
-from sqlalchemy import Column, String, ForeignKey
+from sqlalchemy import Column, String, ForeignKey, DateTime
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm.exc import NoResultFound
 import models
+from flask_login import UserMixin
 
 
-class Staff(BaseModel, Base):
+class Staff(BaseModel, Base, UserMixin):
     """The staff class"""
     __tablename__ = "staffs"
 
     id = Column(String(60), nullable=False, primary_key=True)
     first_name = Column(String(45), nullable=False)
     last_name = Column(String(45), nullable=False)
-    password = Column(String(45), nullable=False)
+    password = Column(String(60), nullable=False)
     email = Column(String(60))
     address = Column(String(60))
-    profession = Column(String(60), nullable=False)
+    dob = Column(DateTime, nullable=False)
+    profession = Column(String(60))
     phone_number = Column(String(60), nullable=False)
+    picture = Column(String(45), nullable=False, default="default.png")
     school_id = Column(String(60), ForeignKey('schools.id'), nullable=False)
 
     posts = relationship('Post', backref="staff", cascade="all, delete-orphan")
@@ -39,7 +42,7 @@ class Staff(BaseModel, Base):
         try:
             models.storage._DBStorage__session.query(School).filter(School.id == self.school_id).one()
         except NoResultFound:
-            raise ValueError(f"School with id {self.school_id} does not exist")
+            raise ValueError(f"School with ID {self.school_id} does not exist")
 
         school_initial = self.school_id[:3]
         last_id = models.storage.get_lastId("Staff")

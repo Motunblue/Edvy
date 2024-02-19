@@ -18,3 +18,8 @@ body {
   color: green;
   margin-top: 10px;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

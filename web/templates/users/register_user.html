@@ -1,0 +1,70 @@
+{% extends 'users/dashboard.html' %}
+
+{% block dashboard_css %}
+<link href="{{url_for('static', filename='styles/register_user.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
+{% endblock %}
+
+{% block dashboard_content %}
+<main>
+  <div class="register-main">
+    {% if not staff %}
+    <legend class='form-legend'>Register Student</legend>
+    {% else %}
+    <legend class='form-legend'>Register Staff</legend>
+    {% endif %}
+    <div class="form-group">
+      <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="field">
+          <div class="register-form-input">
+            {{ form.first_name.label }}
+            {{ form.first_name }}
+          </div>
+          <div class="register-form-input">
+            {{ form.last_name.label }}
+            {{ form.last_name }}
+          </div>
+          <div class="register-form-input">
+            {{ form.dob.label }}
+            {{ form.dob }}
+          </div>
+          <div class="register-form-input">
+            {{ form.address.label }}
+            {{ form.address }}
+          </div>
+          {% if not staff %}
+          <div class="register-form-input">
+            {{ form.guardian_phone_no.label }}
+            {{ form.guardian_phone_no }}
+          </div>
+          {% else %}
+          <div class="register-form-input">
+            {{ form.email.label }}
+            {{ form.email }}
+          </div>
+          <div class="register-form-input">
+            {{ form.phone_no.label }}
+            {{ form.phone_no }}
+          </div>
+          {% endif %}
+          <div class="register-form-input">
+            {{ form.picture.label }}
+            {{ form.picture }}
+          </div>
+        </fieldset>
+        <div class="submit">
+          {{ form.submit(class="submit-btn") }}
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="register-side-bar">
+    <div id="register-animation-container"></div>
+  </div>
+</main>
+ 
+{% endblock %}
+{% block body_scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.12.2/lottie.min.js" integrity="sha512-jEnuDt6jfecCjthQAJ+ed0MTVA++5ZKmlUcmDGBv2vUI/REn6FuIdixLNnQT+vKusE2hhTk2is3cFvv5wA+Sgg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='scripts/animation.js') }}?cache_id={{ cache_id }}"></script>
+{% endblock %}

@@ -1,17 +1,23 @@
 {% extends "users/dashboard.html" %}
 
+{% block dashboard_css %}
+<link href="{{url_for('static', filename='styles/blog.css') }}?cache_id={{ cache_id }}" rel="stylesheet">
+{% endblock %}
+
 {% block dashboard_content %}
   <main class="blog-body">
     <section id="blog-content" data-user='{{ {"id": current_user.id, "school_id": current_user.to_dict().get("school_id")} | tojson | safe }}'>
     </section>
     <div class="blog-side-bar">
+      <a href="{{ url_for('admin_bp.adminPost') if admin else url_for('users_bp.userPost')}}">
       <div id="nav-blog-post" class="blog-post nav-el">
         <div id="nav-icon-cont">
           <div class="blog-post-icon"></div>
         </div>
         <p>Create post</p>
       </div>
-      <div id="animation-container" class="animation-container"></div>
+      </a>
+      <div id="blog-animation-container" class="animation-container"></div>
     </div>
 </main>
 {% endblock %}
