@@ -125,6 +125,22 @@ def staffSignUp():
         return(redirect(url_for('admin_bp.staffSignUp')))
     return render_template('users/register_user.html', form=form, staff=True, admin=True)
 
+
+@admin_bp.route('/view/students', methods=['GET'], strict_slashes=False)
+@adminProtected
+def viewStudent():
+    """Student Signup"""
+    students = current_user.students
+    print(students)
+    return render_template('users/view.html', users=students, admin=True)
+
+@admin_bp.route('/view/staff', methods=['GET'], strict_slashes=False)
+@adminProtected
+def viewStaff():
+    """Student Signup"""
+    staff = current_user.staffs
+    return render_template('users/view.html', users=staff, admin=True)
+
 @admin_bp.route('/logout', methods=['GET'], strict_slashes=False)
 @adminProtected
 def adminLogout():

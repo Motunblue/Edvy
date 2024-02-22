@@ -55,11 +55,12 @@
     background-image: url('../assests/register-icon.png');
     background-repeat: no-repeat;
 }
-.nav-register {
+
+.nav-register, .nav-view {
     position: relative;
 }
 
-.register-type {
+.register-type, .view-type{
     width: 100%;
     position: absolute;
     top: -5px;
@@ -76,9 +77,16 @@
     margin-bottom: 8px;
 }
 
-.nav-register:hover .register-type {
+.nav-register:hover .register-type,  .nav-view:hover .view-type{
     opacity: 1;
     transform: translateY(0);
+}
+
+.view-icon {
+    width: 35px;
+    height: 37px;
+    background-image: url('../assests/view-icon.png');
+    background-repeat: no-repeat;
 }
 
 .content-block {

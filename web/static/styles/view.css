@@ -1,0 +1,27 @@
+main {
+  margin: 50px 16em;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.no-user-image {
+  width: 27em;
+  height: 27em;
+  background-image: url('../assests/pana.svg');
+  background-repeat: no-repeat;
+}
+table {
+  text-align: center;
+  background-color: #f3ebeb;
+  border-radius: 7px;
+}
+
+th {
+  padding: 10px 5em;
+  background-color: rgb(231, 193, 149);
+}
+td {
+  padding: 10px;
+}

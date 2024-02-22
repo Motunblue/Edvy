@@ -35,7 +35,7 @@ def userLogin():
         if user and bcrypt.checkpw(form.password.data.encode('utf-8'), user.password.encode('utf-8')):
             login_user(user, form.remember.data)
             next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('user_bp.userBlog'))
+            return redirect(next_page) if next_page else redirect(url_for('users_bp.userBlog'))
         else:
             flash('Unsuccessful Login. Please check email or password')
     return render_template('login.html', admin=False,
